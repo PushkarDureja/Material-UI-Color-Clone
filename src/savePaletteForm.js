@@ -48,6 +48,7 @@ class FormDialog extends React.Component {
           variant="contained"
           color="secondary"
           onClick={this.handleClickOpen}
+          disabled={this.props.colors.length < 1}
         >
           Save Palette
         </Button>

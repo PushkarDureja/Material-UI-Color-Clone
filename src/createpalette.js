@@ -256,6 +256,7 @@ class CreatePalette extends React.Component {
                 <FormDialog
                   onSubmitForm={this.handleSubmit}
                   palettes={this.props.palettes}
+                  colors={this.state.colors}
                 />
               ) : (
                 ""
