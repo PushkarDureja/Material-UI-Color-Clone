@@ -32,7 +32,7 @@ const styles = theme => ({
     alignItems: "center"
   },
   dividerHeading: {
-    marginBottom: "8%",
+    marginBottom: "3%",
     width: "100%",
     textAlign: "center",
     fontSize: "2.5em"

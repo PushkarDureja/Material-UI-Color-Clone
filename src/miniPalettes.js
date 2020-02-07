@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/styles";
 var styles = {
   root: {
+    position: "relative",
     border: "1px solid rgba(255,255,255,0.8)",
     display: "flex",
     flexDirection: "column",
@@ -23,8 +24,8 @@ var styles = {
     borderRadius: "6%"
   },
   content: {
-    display: "flex",
-    justifyContent: "space-around",
+    // display: "flex",
+    // justifyContent: "space-around",
     width: "90%",
     height: "20%",
     textAlign: "center",
@@ -44,6 +45,23 @@ var styles = {
     height: "24.5%",
     display: "inline-block",
     marginBottom: "-3px"
+  },
+  deletebtn: {
+    position: "absolute",
+    zIndex: "10",
+    right: "10px",
+    top: "4px"
+  },
+  link: {
+    transition: "opacity 0.3s",
+    color: "rgba(255, 29, 13,1)",
+    opacity: "0",
+
+    "&:hover": {
+      opacity: "1",
+
+      cursor: "pointer"
+    }
   }
 };
 class MiniPalette extends Component {
@@ -59,6 +77,14 @@ class MiniPalette extends Component {
     });
     return (
       <div className={classes.root}>
+        <span className={classes.deletebtn}>
+          <Link
+            className={classes.link}
+            onClick={() => this.props.handleDelete(paletteName)}
+          >
+            <i class="fas fa-trash" />
+          </Link>
+        </span>
         <div className={classes.colorBox}>
           <div className={classes.img}>{individualBox}</div>
         </div>

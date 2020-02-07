@@ -46,15 +46,30 @@ var styles = {
   }
 };
 class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      palettes: this.props.palettes
+    };
+  }
+  deletePalette = name => {
+    this.setState({
+      palettes: this.state.palettes.filter(palette => {
+        return palette.paletteName !== name;
+      })
+    });
+  };
   render() {
+    console.log(this.state);
     var { classes } = this.props;
-    const links = this.props.palettes.map(palette => {
+    const links = this.state.palettes.map(palette => {
       return (
         <NavLink to={`/palette/${palette.id}`}>
           <MiniPalette
             paletteName={palette.paletteName}
             navLink={`/palette/${palette.id}`}
             {...palette}
+            handleDelete={this.deletePalette}
           />
         </NavLink>
       );
