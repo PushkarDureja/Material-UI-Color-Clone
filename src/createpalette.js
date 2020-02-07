@@ -17,6 +17,7 @@ import { SketchPicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import DraggableColorList from "./draggableColorList";
 import arrayMove from "array-move";
+import FormDialog from "./savePaletteForm";
 
 const drawerWidth = 400;
 
@@ -209,11 +210,11 @@ class CreatePalette extends React.Component {
     this.setState({ open: false });
   };
 
-  handleSubmit() {
+  handleSubmit(name) {
     if (this.state.colors.length === 0) {
       console.log("cannot be null");
     } else {
-      this.props.submit(this.state.colors);
+      this.props.submit(this.state.colors, name);
       this.props.history.push("/");
     }
   }
@@ -252,14 +253,7 @@ class CreatePalette extends React.Component {
                 Go Back
               </Button>
               {this.state.open ? (
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={this.handleSubmit}
-                  style={{ marginLeft: "3px" }}
-                >
-                  Save Palette
-                </Button>
+                <FormDialog onSubmitForm={this.handleSubmit} />
               ) : (
                 ""
               )}

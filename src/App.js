@@ -21,13 +21,13 @@ class App extends React.Component {
       return palette.id === id;
     });
   }
-  handleSubmit(colors) {
-    var paletteName = "New Palette";
-    var id = paletteName.toLowerCase().replace(/ /g, "-");
+  handleSubmit(colors, name) {
+    console.log(name);
+    var id = name.toLowerCase().replace(/ /g, "-");
     this.setState({
       paletteList: [
         ...this.state.paletteList,
-        { paletteName: paletteName, id: id, colors: colors }
+        { paletteName: name, id: id, colors: colors }
       ]
     });
   }
