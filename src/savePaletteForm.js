@@ -16,6 +16,14 @@ class FormDialog extends React.Component {
       open: false
     };
   }
+  componentDidMount() {
+    ValidatorForm.addValidationRule("isPaletteNameUnique", value => {
+      const a = this.props.palettes.every(palette => {
+        return palette.paletteName.toLowerCase() !== value.toLowerCase();
+      });
+      return a;
+    });
+  }
 
   handleSubmitForm = () => {
     this.props.onSubmitForm(this.state.name);
@@ -53,12 +61,25 @@ class FormDialog extends React.Component {
             <DialogContentText>
               Enter a Name for your beautiful palette.Make sure it is Unique
             </DialogContentText>
-            <ValidatorForm>
+            <ValidatorForm onSubmit={this.handleSubmitForm}>
               <TextValidator
                 value={this.state.name}
                 onChange={this.handleNameChange}
                 label="Palette Name"
+                validators={["required", "isPaletteNameUnique"]}
+                errorMessages={[
+                  "This field is required",
+                  "Palette Name should be unique"
+                ]}
               />
+              <DialogActions>
+                <Button onClick={this.handleClose} color="primary">
+                  Cancel
+                </Button>
+                <Button type="submit" color="primary">
+                  Save
+                </Button>
+              </DialogActions>
             </ValidatorForm>
             {/* <TextField
               autoFocus
@@ -71,14 +92,6 @@ class FormDialog extends React.Component {
               fullWidth
             /> */}
           </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={this.handleSubmitForm} color="primary">
-              Save
-            </Button>
-          </DialogActions>
         </Dialog>
       </div>
     );
