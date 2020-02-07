@@ -1,0 +1,12 @@
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 0.9em;
+  margin-top: 0.6%;
+  font-weight: 100;
+}
+.footer-title {
+  padding-right: 0.5em;
+}

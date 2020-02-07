@@ -1,0 +1,98 @@
+.color-box {
+  height: 25%;
+  width: 20%;
+  display: inline-block;
+  position: relative;
+  margin-bottom: -3px;
+}
+.color-box:hover .copy {
+  opacity: 1;
+  transition: 1s;
+}
+.more {
+  position: absolute;
+  bottom: 0;
+  right: 1px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  letter-spacing: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+.box-content {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  font-size: 0.7em;
+}
+.copy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  margin-left: -15%;
+  margin-top: -5%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  letter-spacing: 2px;
+  cursor: pointer;
+  outline: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  cursor: pointer;
+}
+
+.copy-overlay {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+  transition: transform 0.5s ease-in-out;
+}
+.copy-overlay.show {
+  position: absolute;
+  opacity: 1;
+  transform: scale(10);
+  z-index: 10;
+  overflow: hidden;
+}
+.copy-overlay-content {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* height: 100%;
+  width: 100%; */
+
+  justify-content: center;
+  transform: scale(0.1);
+}
+.copy-overlay-content.show {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 20;
+  font-size: 1.5em;
+  transition: opacity, transform 0.4s;
+  transition-delay: 0.2s;
+}
+.copy-overlay-content h1 {
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+}
+.copy-overlay-content span {
+  text-align: center;
+  color: white;
+}

@@ -1,0 +1,7 @@
+body {
+  margin: -1px;
+}
+html {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
