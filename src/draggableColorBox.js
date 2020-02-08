@@ -8,7 +8,10 @@ var styles = {
     width: "20%",
     display: "inline-block",
     position: "relative",
-    marginBottom: "-3px"
+    marginBottom: "-3px",
+    "&:hover a ": {
+      opacity: "1"
+    }
   },
   colorName: {
     position: "absolute",
@@ -19,21 +22,15 @@ var styles = {
   icon: {
     position: "absolute",
     right: "5px",
-    bottom: "3px",
-    color: "rgba(255,255,255,0.7)",
-    "&:hover": {
-      color: "rgba(255,255,255,1)",
-      transform: "scale(1.3)",
-      transition: "transform,color 0.8s",
-      cursor: "pointer"
-    }
+    bottom: "3px"
   },
   link: {
     color: "rgba(255,255,255,0.7)",
+    opacity: "0",
     "&:hover": {
       color: "rgba(255,255,255,1)",
-      transform: "scale(1.3)",
-      transition: "transform,color 0.8s",
+      transform: "scale(1.2)",
+      transition: "all 0.8s",
       cursor: "pointer"
     }
   }
