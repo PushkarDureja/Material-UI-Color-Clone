@@ -38,7 +38,9 @@ class App extends React.Component {
         <Route
           exact
           path="/"
-          render={() => <Home palettes={this.state.paletteList} />}
+          render={routeParams => (
+            <Home palettes={this.state.paletteList} {...routeParams} />
+          )}
         />
         <Route
           exact

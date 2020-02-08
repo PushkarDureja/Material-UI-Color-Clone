@@ -76,11 +76,17 @@ class MiniPalette extends Component {
       );
     });
     return (
-      <div className={classes.root}>
+      <div
+        className={classes.root}
+        onClick={() => this.props.handleClick(this.props.id)}
+      >
         <span className={classes.deletebtn}>
           <Link
             className={classes.link}
-            onClick={() => this.props.handleDelete(paletteName)}
+            onClick={e => {
+              e.stopPropagation();
+              this.props.handleDelete(paletteName);
+            }}
           >
             <i class="fas fa-trash" />
           </Link>

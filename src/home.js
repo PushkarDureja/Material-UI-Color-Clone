@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import MiniPalette from "./miniPalettes";
 import "./backgroundColor.css";
 import { Link } from "react-router-dom";
@@ -57,19 +57,25 @@ class Home extends Component {
       })
     });
   };
+  handleClick = id => {
+    this.props.history.push(`/palette/${id}`);
+  };
   render() {
     console.log(this.state);
     var { classes } = this.props;
     const links = this.state.palettes.map(palette => {
       return (
-        <NavLink to={`/palette/${palette.id}`}>
-          <MiniPalette
-            paletteName={palette.paletteName}
-            navLink={`/palette/${palette.id}`}
-            {...palette}
-            handleDelete={this.deletePalette}
-          />
-        </NavLink>
+        // <NavLink to={`/palette/${palette.id}`}>
+
+        <MiniPalette
+          paletteName={palette.paletteName}
+          navLink={`/palette/${palette.id}`}
+          {...palette}
+          handleDelete={this.deletePalette}
+          handleClick={this.handleClick}
+        />
+
+        // </NavLink>
       );
     });
     return (
