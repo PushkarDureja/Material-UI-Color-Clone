@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import MiniPalette from "./miniPalettes";
-import seedColors from "./seedColors";
+import "./backgroundColor.css";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/styles";
-var styles = {
-  root: {
-    display: "flex",
-    flexDirection: "column",
 
-    alignItems: "center",
-    height: "100vh",
-    overflowY: "scroll",
-    overflowX: "hidden",
-    backgroundImage:
-      "linear-gradient(to right bottom, #7539c4, #6d4ad0, #6458db, #5b65e5, #5072ee, #3286f7, #1099fd, #0caaff, #49c4fb, #82daf6, #b9eef5, #eefffe)"
-  },
+var styles = {
+  // root: {
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   alignItems: "center",
+  //   height: "100vh",
+  //   overflowY: "scroll",
+  //   overflowX: "hidden"
+  // },
   header: {
     position: "sticky",
     top: "0",
@@ -75,7 +73,7 @@ class Home extends Component {
       );
     });
     return (
-      <div className={classes.root}>
+      <div className="root">
         <div className={classes.header}>
           <div className={classes.headerTitle}>React Colors</div>
 
