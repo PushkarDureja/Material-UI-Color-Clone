@@ -54,16 +54,19 @@ class Home extends Component {
     super(props);
     this.state = {
       palettes: this.props.palettes,
-      open: false
+      open: false,
+      deletePaletteName: undefined
     };
   }
-  deletePrompt = () => {
+  deletePrompt = name => {
     this.setState({
-      open: true
+      open: true,
+      deletePaletteName: name
     });
   };
   handleClose = () => {
     this.setState({
+      deletePaletteName: undefined,
       open: false
     });
   };
@@ -71,7 +74,9 @@ class Home extends Component {
     this.setState({
       palettes: this.state.palettes.filter(palette => {
         return palette.paletteName !== name;
-      })
+      }),
+      deletePaletteName: undefined,
+      open: false
     });
   };
   handleClick = id => {
@@ -111,21 +116,22 @@ class Home extends Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">
-            {"Use Google's location service?"}
-          </DialogTitle>
+          <DialogTitle id="alert-dialog-title">Delete Palette</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              Let Google help apps determine location. This means sending
-              anonymous location data to Google, even when no apps are running.
+              Do you want to permanently delete this palette
             </DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Disagree
+              No
             </Button>
-            <Button onClick={this.handleClose} color="primary" autoFocus>
-              Agree
+            <Button
+              onClick={() => this.deletePalette(this.state.deletePaletteName)}
+              color="primary"
+              autoFocus
+            >
+              Yes
             </Button>
           </DialogActions>
         </Dialog>

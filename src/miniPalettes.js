@@ -14,7 +14,8 @@ var styles = {
     borderRadius: "7%",
     backgroundColor: "rgba(255,255,255,0.6)",
     textDecoration: "none",
-    boxShadow: "6px 6px 12px -2px  rgba(79,73,79,1)"
+    boxShadow: "6px 6px 12px -2px  rgba(79,73,79,1)",
+    cursor: "pointer"
   },
   colorBox: {
     border: "1px solid rgba(255,255,255,0.8)",
@@ -36,7 +37,7 @@ var styles = {
     height: "100%"
   },
   contentHeading: {
-    fontSize: "0.8em",
+    fontSize: "1.1em",
     color: "black",
     fontWeight: "800"
   },
