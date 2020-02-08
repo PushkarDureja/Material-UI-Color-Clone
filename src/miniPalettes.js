@@ -15,7 +15,10 @@ var styles = {
     backgroundColor: "rgba(255,255,255,0.6)",
     textDecoration: "none",
     boxShadow: "6px 6px 12px -2px  rgba(79,73,79,1)",
-    cursor: "pointer"
+    cursor: "pointer",
+    "&:hover svg": {
+      opacity: "1"
+    }
   },
   colorBox: {
     border: "1px solid rgba(255,255,255,0.8)",
@@ -37,7 +40,7 @@ var styles = {
     height: "100%"
   },
   contentHeading: {
-    fontSize: "1.1em",
+    fontSize: "0.8em",
     color: "black",
     fontWeight: "800"
   },
@@ -51,17 +54,22 @@ var styles = {
     position: "absolute",
     zIndex: "10",
     right: "10px",
-    top: "4px"
-  },
-  link: {
-    transition: "opacity 0.3s",
-    color: "rgba(255, 29, 13,1)",
-    opacity: "0",
-
-    "&:hover": {
+    top: "4px",
+    width: "100%",
+    height: "100%",
+    "&:hover a": {
       opacity: "1",
 
       cursor: "pointer"
+    }
+  },
+  link: {
+    transition: "all 0.3s",
+    color: "rgba(255, 29, 13,1)",
+    opacity: "0",
+    float: "right",
+    "&:hover": {
+      transform: "scale(1.2)"
     }
   }
 };
