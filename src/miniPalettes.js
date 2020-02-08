@@ -85,7 +85,7 @@ class MiniPalette extends Component {
             className={classes.link}
             onClick={e => {
               e.stopPropagation();
-              this.props.handleDelete(paletteName);
+              this.props.deletePrompt(paletteName);
             }}
           >
             <i class="fas fa-trash" />
