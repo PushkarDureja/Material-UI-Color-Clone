@@ -1,7 +1,26 @@
 import React, { Component } from "react";
+import { withStyles } from "@material-ui/styles";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "./colorbox.css";
 import { func } from "prop-types";
+import sizes from "./sizes";
+var styles = {
+  root: {
+    height: "25%",
+    width: "20%",
+    display: "inline-block",
+    position: "relative",
+    marginBottom: "-3px",
+    [sizes.down("sm")]: {
+      width: "50%",
+      height: "10%"
+    },
+    [sizes.down("xs")]: {
+      width: "100%",
+      height: "5%"
+    }
+  }
+};
 class ColorBox extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +41,12 @@ class ColorBox extends Component {
   }
 
   render() {
+    var { classes } = this.props;
     return (
-      <div className="color-box" style={{ backgroundColor: this.props.color }}>
+      <div
+        className={`${classes.root} color-box`}
+        style={{ backgroundColor: this.props.color }}
+      >
         <div
           className={`copy-overlay ${this.state.copied && "show"}`}
           style={{ backgroundColor: this.props.color }}
@@ -44,4 +67,4 @@ class ColorBox extends Component {
   }
 }
 
-export default ColorBox;
+export default withStyles(styles)(ColorBox);

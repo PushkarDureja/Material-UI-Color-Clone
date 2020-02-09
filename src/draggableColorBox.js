@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/styles";
 import { Link } from "react-router-dom";
 import { SortableElement } from "react-sortable-hoc";
+import sizes from "./sizes";
+
 var styles = {
   colorBox: {
     height: "25%",
@@ -11,6 +13,18 @@ var styles = {
     marginBottom: "-3px",
     "&:hover a ": {
       opacity: "1"
+    },
+    [sizes.down("md")]: {
+      width: "25%",
+      height: "20%"
+    },
+    [sizes.down("sm")]: {
+      width: "50%",
+      height: "10%"
+    },
+    [sizes.down("xs")]: {
+      width: "100%",
+      height: "5%"
     }
   },
   colorName: {

@@ -7,7 +7,20 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-
+import { withStyles } from "@material-ui/styles";
+import sizes from "./sizes";
+var styles = {
+  btn: {
+    [sizes.down("md")]: {
+      fontSize: "60%",
+      padding: "7%",
+      height: "100%"
+    },
+    [sizes.down("sm")]: {
+      opacity: 0
+    }
+  }
+};
 class FormDialog extends React.Component {
   constructor(props) {
     super(props);
@@ -42,11 +55,13 @@ class FormDialog extends React.Component {
   };
 
   render() {
+    var { classes } = this.props;
     return (
       <div>
         <Button
           variant="contained"
           color="secondary"
+          className={classes.btn}
           onClick={this.handleClickOpen}
           disabled={this.props.colors.length < 1}
         >
@@ -98,4 +113,4 @@ class FormDialog extends React.Component {
     );
   }
 }
-export default FormDialog;
+export default withStyles(styles)(FormDialog);

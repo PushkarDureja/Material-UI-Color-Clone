@@ -18,8 +18,8 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import DraggableColorList from "./draggableColorList";
 import arrayMove from "array-move";
 import FormDialog from "./savePaletteForm";
-
-const drawerWidth = 400;
+import sizes from "./sizes";
+const drawerWidth = 350;
 
 const styles = theme => ({
   root: {
@@ -72,6 +72,14 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen
     })
   },
+  appBarTitle: {
+    [sizes.down("md")]: {
+      fontSize: "15px"
+    },
+    [sizes.down("sm")]: {
+      opacity: 0
+    }
+  },
   menuButton: {
     marginLeft: 12,
     marginRight: 20
@@ -116,7 +124,19 @@ const styles = theme => ({
     justifyContent: "flex-end",
     width: "60%",
     marginLeft: "auto",
-    marginRight: "20px"
+    marginRight: "20px",
+    alignItems: "center",
+    [sizes.down("sm")]: {}
+  },
+  btn: {
+    [sizes.down("md")]: {
+      fontSize: "60%",
+      padding: "2%",
+      height: "100%"
+    },
+    [sizes.down("sm")]: {
+      opacity: 0
+    }
   },
   colorName: {
     position: "absolute",
@@ -245,11 +265,21 @@ class CreatePalette extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography
+              variant="h6"
+              color="inherit"
+              noWrap
+              className={classes.appBarTitle}
+            >
               Create Your Palette
             </Typography>
             <div className={classes.appBarBtns}>
-              <Button variant="contained" color="primary" onClick={this.goBack}>
+              <Button
+                className={classes.btn}
+                variant="contained"
+                color="primary"
+                onClick={this.goBack}
+              >
                 Go Back
               </Button>
               {this.state.open ? (
