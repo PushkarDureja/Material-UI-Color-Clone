@@ -12,12 +12,10 @@ import sizes from "./sizes";
 var styles = {
   btn: {
     [sizes.down("md")]: {
-      fontSize: "60%",
+      fontSize: "10px",
       padding: "7%",
-      height: "100%"
-    },
-    [sizes.down("sm")]: {
-      opacity: 0
+
+      width: "100px"
     }
   }
 };

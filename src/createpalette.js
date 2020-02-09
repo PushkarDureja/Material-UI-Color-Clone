@@ -282,15 +282,12 @@ class CreatePalette extends React.Component {
               >
                 Go Back
               </Button>
-              {this.state.open ? (
-                <FormDialog
-                  onSubmitForm={this.handleSubmit}
-                  palettes={this.props.palettes}
-                  colors={this.state.colors}
-                />
-              ) : (
-                ""
-              )}
+
+              <FormDialog
+                onSubmitForm={this.handleSubmit}
+                palettes={this.props.palettes}
+                colors={this.state.colors}
+              />
             </div>
           </Toolbar>
         </AppBar>
