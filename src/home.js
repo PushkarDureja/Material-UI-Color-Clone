@@ -10,6 +10,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import sizes from "./sizes";
 
 var styles = {
   // root: {
@@ -37,7 +38,13 @@ var styles = {
     marginLeft: "-5%",
     display: "grid",
     gridTemplateColumns: "repeat(3,30%)",
-    gridGap: "10%"
+    gridGap: "10%",
+    [sizes.down("md")]: {
+      gridTemplateColumns: "repeat(2,50%)"
+    },
+    [sizes.down("sm")]: {
+      gridTemplateColumns: "repeat(1,10%)"
+    }
   },
   headerTitle: {
     textAlign: "center",
